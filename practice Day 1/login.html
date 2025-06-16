@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script>
+    function handlesubmit(event){
+        event.preventDefault(); 
+        const form = event.target;
+        const formData = new FormData(form);    
+        if(formData.get('name') === '' || formData.get('email') === '' || formData.get('password') === ''){
+            alert('Please fill all the fields');
+        } else {
+            alert(`Username: ${formData.get('name')}\nEmail: ${formData.get('email')}\nPassword: ${formData.get('password')}`);
+        }
+    }
+</script>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    form {
+      width: 60%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    form fieldset {
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    form legend {
+      font-size: 1.5rem;
+    }
+
+    form label {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    label b {
+      width: 30%;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 65%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-wrapper {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <form action="/submit" method = "post" onsubmit="handlesubmit(event)">
+        <fieldset>
+            <legend>Login</legend>
+        <label for="name"><b>Username</b><input type="text" name="name"></label>
+        <label for="email"><b>Email</b><input type="text" name="email"></label>
+        <label for="password"><b>Password</b><input type="password" name="password"></label>
+        <label for="submit" class="submit-wrapper"><button type="submit">Submit</button></label>
+        <label for="reset" class="submit-wrapper"><button type="reset">Reset</button></label>
+        <div style="margin-top: 20px;">
+            <span>Don't have an account? </span>
+            <a href="signup.html">Sign up</a>
+        </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>

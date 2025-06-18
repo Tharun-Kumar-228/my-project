@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page
+    </title>
+    <style>
+        .body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            background-color: #f4f4f4;
+            margin: 0;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        .side-nav{
+            flex: 1;
+            background-color: #84c6e4;
+            height: 100%;
+            border: 1px solid #030000;
+        }
+
+        .container{
+            flex: 3;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #000000;
+        }
+    </style>
+    <script>
+        function toggleNav(){
+            const sideNav = document.getElementById('sideNav');
+            const btn = document.getElementById('toggleBtn');
+            const currentFlex = window.getComputedStyle(sideNav).flexGrow;
+            if (currentFlex === '1'){
+                sideNav.style.flex = '0.25';
+                btn.textContent = 'Open';
+            }else{
+                sideNav.style.flex = '1';
+                btn.textContent = 'Close';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="body">
+        <div class="side-nav" id="sideNav" style="transition: flex 0.3s;">
+            <button id="toggleBtn" onclick="toggleNav()">Close</button>
+            <nav style="margin-top: 30px;">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px;">
+                        <a href="login.html" style="text-decoration: none; color: #2176ae; font-weight: bold;">Login</a>
+                    </li>
+                    <li>
+                        <a href="signup.html"
+                            style="text-decoration: none; color: #2176ae; font-weight: bold;">Signup</a>
+                    </li>
+
+                    <li style="margin-top: 15px;">
+                        <a href="home.html" style="text-decoration: none; color: #2176ae; font-weight: bold;">Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container">
+            <h1 style="color: #2176ae; margin-bottom: 10px;">Welcome to the Home Page</h1>
+            <p style="font-size: 1.1em; color: #333; margin-bottom: 20px;">
+                This is your main dashboard. Use the navigation on the left to explore different sections.
+            </p>
+            <ul style="list-style: none; padding: 0;"></ul>
+            <li
+                style="background: #eaf6fb; margin-bottom: 10px; padding: 10px 15px; border-radius: 5px; color: #2176ae; font-weight: bold;">
+                Profile
+            </li>
+            <li
+                style="background: #eaf6fb; margin-bottom: 10px; padding: 10px 15px; border-radius: 5px; color: #2176ae; font-weight: bold;">
+                Settings
+            </li>
+            <li
+                style="background: #eaf6fb; margin-bottom: 10px; padding: 10px 15px; border-radius: 5px; color: #2176ae; font-weight: bold;">
+                Notifications
+            </li>
+        </div>
+</body>
+
+</html>
